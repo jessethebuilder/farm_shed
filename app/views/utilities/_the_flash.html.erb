@@ -1,0 +1,29 @@
+<% if alert -%>
+	<div class="container flash" id="flash_alert">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="close" id="close_alert">close x</div>
+				<h4 class="text-danger"><%= alert %></h4>
+			</div><!-- col -->
+		</div><!-- row -->
+	</div><!-- cont -->
+
+	<script>
+		activateSectionCloser('#flash_alert', '#close_alert');
+	</script>
+<% end -%>
+
+<% if notice -%>
+	<div class="container flash" id="flash_notice">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="close" id="close_notice">close x</div>
+				<h4 class="text-info"><%= notice %></h4>
+			</div><!-- col -->
+		</div><!-- row -->
+	</div><!-- cont -->
+
+	<script>
+		activateSectionCloser('#flash_notice', '#close_notice');
+	</script>
+<% end -%>	

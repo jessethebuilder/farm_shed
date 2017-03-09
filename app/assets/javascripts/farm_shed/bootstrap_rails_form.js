@@ -54,8 +54,6 @@ function BootstrapRailsForm(form_selector){
       p.keypress(function(e){
         if(e.keyCode == 9 || e.keyCode == 8){ return; }
 
-        console.log(e.keyCode);
-
         var key = e.key;
         if(/\d/.test(key)){
           // if key is a number
