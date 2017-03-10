@@ -5,9 +5,9 @@ module HtmlHelper
                                                           :multiple => multiple, :accepts_remote => accepts_remote_url,
                                                           :label => label}
   end
-  
+
   #------------- Quick Options -------------------
-  
+
   def quick_options(*options, ajax: false)
     html = initiate_quick_options
     html += '<ul class="quick_options">'
@@ -23,25 +23,25 @@ module HtmlHelper
 
     html.html_safe
   end
-  
+
   def initiate_quick_options
-    
+
     "<script>$(document).ready(function(){
         toggleClassOnHover('.quick_options li', 'quick_option_selected');
       })</script>"
   end
-  
+
   #------------ For Select tools -----------------------
   def for_select(collection, id_method, value_method, selected_items: nil, alphabetize: true)
     if block_given?
       options = collection.each.collect{ |item| [item.send(id_method), item.send(value_method), yield(item)] }
     else
       options = collection.each.collect{ |item| [item.send(id_method), item.send(value_method)] }
-    end  
-    
+    end
+
     farm_select_options(options.sort_by{ |o| o[0].to_s }, selected_items: selected_items, alphabetize: false)
    end
-  
+
   def array_for_select(arr, selected_items: nil, alphabetize: true)
     options = arr.each.collect{ |i| [i.to_s.titlecase, i] }
     farm_select_options(options, selected_items: selected_items, alphabetize: alphabetize)
@@ -57,19 +57,19 @@ module HtmlHelper
     options = array.collect{ |hash| [hash[id_key], hash[value_key]] }
     farm_select_options(options, selected_items: selected_items, alphabetize: alphabetize)
   end
-  
+
   def hash_of_arrays_for_select(hash, data_attr: 'key', selected_items: nil, alphabetize: true)
     options = []
     hash.each do |k, v|
       v.each do |model|
         options << [model, model, {"data-#{data_attr}" => k}]
-      end  
-    end   
+      end
+    end
     farm_select_options(options, selected_items: selected_items, alphabetize: alphabetize)
   end
 
   def farm_select_options(options, selected_items: nil, alphabetize: true, escape: true)
-    options.sort!{ |x, y| x[0] <=> y[0] } if alphabetize 
+    options.sort!{ |x, y| x[0] <=> y[0] } if alphabetize
     # options.each
     options_for_select(options, selected_items)
   end
