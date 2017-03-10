@@ -23,6 +23,11 @@ function BootstrapRailsForm(form_selector){
     return this.form.find('input[type="date"]');
   }
 
+  this.get_file_fields = function(){
+    console.log('x');
+    return this.form.find('input[type="file"]');
+  }
+
   //--- Methods ------------------------------------------
   this.addBootstrapFormClasses = function(){
     this.get_labels().addClass('control-label');
@@ -31,6 +36,7 @@ function BootstrapRailsForm(form_selector){
     this.get_date_fields().addClass('form-control');
     this.get_text_fields().addClass('form-control');
     this.get_phone_fields().addClass('form-control');
+    this.get_file_fields().addClass('form-control');
   }
 
   this.requireFormFields = function(){
