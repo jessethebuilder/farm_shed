@@ -13,7 +13,7 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
-gem 'farm_ruby', :git => 'https://github.com/jessethebuilder/farm_farm_ruby'
+gem 'farm_ruby', :git => 'https://github.com/jessethebuilder/farm_ruby'
 # gem 'farm_tools', :path => 'C:\Users\Bucky\Desktop\jesseweb\farm_tools\farm_tools'
 
 group :test, :development do
@@ -49,6 +49,6 @@ group :production do
   # gem 'rails_12factor'
 end
 
-ruby '2.2.4'
+ruby '2.3.1'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
