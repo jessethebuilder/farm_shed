@@ -17,8 +17,6 @@ function IndexSearch(selector){
   //--- end Inintialize ----------------------------------------
   //
 
-
-
   this.getSearchKey = function(input){
     return input.closest('[data-search="true"]').attr('data-search-key');
   }
@@ -122,6 +120,8 @@ function IndexSearch(selector){
     // save inputs on the object
     this.searchers = searchers;
 
+    console.log(searchers);
+
     this.enableSearchLinking();
 
     this.fillSearchers();
@@ -180,6 +180,7 @@ function IndexSearch(selector){
   }
 
   this.init = function(){
+    console.log('yo');
     this.buildCurrentSearch();
     this.buildSearchers();
     this.buildControls();
