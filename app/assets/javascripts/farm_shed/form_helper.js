@@ -43,3 +43,8 @@ function limitFieldInputByKeypress(selector, test, break_points, delimiter, max_
     });
   }
 }
+
+function limitZipInputs(selector){
+	if(typeof selector == 'undefined'){ selector = '.zip'; }
+	limitFieldInputByKeypress(selector, /\d/, [5], '-', 10);
+}
